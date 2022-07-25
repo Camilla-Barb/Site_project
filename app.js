@@ -18,7 +18,6 @@ const selectSize = (e) => {
   let arrDataSet = [...document.querySelectorAll("[data-size]")];
   let infoSize = document.querySelector(".size-info");
   infoSize.style.display = "block";
-  console.log(arrDataSet);
   if (e.currentTarget.dataset.size === "xs") {
     //taglia non disponibile
 
