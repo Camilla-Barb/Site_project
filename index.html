@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
   </head>
   <body>
     <nav>
@@ -34,18 +39,26 @@
         <div class="path">
           <a href="#"><small>Home</a> / <a href="#">Compound zip hoodie - black marl</a></small>
         </div>
-
-        <div class="product-images">
-          <!-- <div class="images-series"> -->
-          <img src="img/tshirt.webp" alt="t-shirt" />
-          <img src="img/tshirt.webp" alt="t-shirt" />
-          <img src="img/tshirt.webp" alt="t-shirt" />
-          <img class="mobile-view" src="img/tshirt.webp" alt="t-shirt" />
-          <!-- </div> -->
-          <!-- <div class="main-image">
-            <img src="/img/shop.jpg" alt="accessories" />
-          </div> -->
+        <div class="swiper">
+        <div class="swiper-wrapper">
+    
+         <div class="swiper-slide"><img src="img/tshirt.webp" alt="t-shirt" /></div>
+         <div class="swiper-slide"><img src="img/tshirt.webp" alt="t-shirt" /></div>
+         <div class="swiper-slide"><img src="img/tshirt.webp" alt="t-shirt" /></div>
+         <div class="swiper-slide"><img src="img/tshirt.webp" alt="t-shirt" /></div>
+        
         </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+      </div>
+
+      <div class="product-img-desktop">
+         <img src="img/tshirt.webp" alt="t-shirt" />
+         <img src="img/tshirt.webp" alt="t-shirt" />
+         <img src="img/tshirt.webp" alt="t-shirt" />
+         <img src="img/tshirt.webp" alt="t-shirt" />
+      </div>
       </div>
 
         <div class="column-details">
@@ -61,12 +74,13 @@
             <button><img src="/img/tshirt.webp" alt="white t-shirt"/></button>
           </div>
           <div class="size-guide">
-            <button>xs</button>
-            <button>s</button>
-            <button>m</button>
-            <button>l</button>
-            <button>xl</button>
+            <button data-size="xs">xs</button>
+            <button data-size="s">s</button>
+            <button data-size="m">m</button>
+            <button data-size="l">l</button>
+            <button data-size="xl">xl</button>
           </div>
+          <div class="size-info"></div>
           <div class="add-to-cart">
             <button class="cart">Add</button>
           </div>
@@ -74,6 +88,7 @@
         </div>
    
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
