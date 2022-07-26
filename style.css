@@ -115,7 +115,7 @@ main .column-details .miniature-image button {
   border: none;
 }
 
-main .column-details .miniature-image button:focus {
+main .column-details .miniature-image button.focus {
   border: 2px solid #000;
 }
 
