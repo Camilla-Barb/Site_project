@@ -62,12 +62,12 @@ let productInfo = {
   size: "",
 };
 
-// el.classList.toggle("focus");
-//  if (el.clicked == true) {
-//   el.classList.remove("focus");
-// } else {
-//   el.classList.toggle("focus");
-// }
+const labelText = document.querySelector("label");
+labelText.innerHTML = productInfo.size;
+
+// label.innerHTML = productInfo.color.size
+// productInfo.color = .miniature-image button.active .dataset.currentColor
+// productInfo.size = .size-guide button.active .dataset.currentSize
 
 const init = async () => {
   checkBtn();
