@@ -115,7 +115,7 @@ main .column-details .miniature-image button {
   border: none;
 }
 
-main .column-details .miniature-image button:hover {
+main .column-details .miniature-image button:focus {
   border: 2px solid #000;
 }
 
@@ -131,7 +131,7 @@ main .column-details .size-guide button {
   margin: 8px;
 }
 
-main .column-details .size-guide button:hover {
+main .column-details .size-guide button:focus {
   border: 2px solid #000;
 }
 
