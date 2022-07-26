@@ -12,12 +12,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const activeBtn = (e) => {
+  if (document.querySelector("button.active") !== null) {
+    document.querySelector("button.active").classList.remove("active");
+  }
+  e.target.className = "active";
+};
+
 const selectSize = (e) => {
+  activeBtn(e);
+
+  // console.log(e.currentTarget);
   // let arrDataSet = [...document.querySelectorAll("[data-size]")];
   let infoSize = document.querySelector(".size-info");
   infoSize.style.display = "block";
   if (e.currentTarget.dataset.size === "xs") {
     //taglia non disponibile
+
     infoSize.innerHTML = "Taglia non disponibile";
   } else if (e.currentTarget.dataset.size === "s") {
     // ultimo capo disponibile
@@ -33,8 +44,19 @@ const checkBtn = () => {
   allSizeBtn.forEach((el) => {
     el.addEventListener("click", selectSize);
   });
+
+  const allColorBtn = [
+    ...document.querySelectorAll(".miniature-image > button"),
+  ];
+  console.log(allColorBtn);
+  allColorBtn.forEach((el) => {
+    el.addEventListener("click", activeBtn);
+  });
 };
 
+//oggetto dinamico che al click del button Add si riempie
+// e stampa a video in una label "Stai acquistanndo colore x e taglia y"
+// concatenando color e size
 let productInfo = {
   color: "",
   size: "",
