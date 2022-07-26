@@ -69,23 +69,6 @@ let productInfo = {
 //   el.classList.toggle("focus");
 // }
 
-const addToCart = () => {
-  const btnAddToCart = document.querySelector(".add-to-cart");
-  let infoSize = document.querySelector(".size-info");
-  const chooseColor = [...document.querySelectorAll(".select-color")];
-  if (
-    (infoSize.innerHTML !== "Taglia non disponibile") &
-    chooseColor.classList.contains("focus")
-  ) {
-    //al click del btn => alert("Prodotto aggiunto al carrello")
-    btnAddToCart.addEventListener("click", function () {
-      alert("Prodotto aggiunto al carrello");
-    });
-  } else {
-    alert("error");
-  }
-};
-
 const init = async () => {
   checkBtn();
 };
