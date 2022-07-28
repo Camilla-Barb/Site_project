@@ -6,16 +6,33 @@
 // the function takes a constant product in which we have the response of the request
 // I print it in the console
 
-let requestURL = "./product.json";
-let request = new XMLHttpRequest();
-request.open("GET", requestURL);
-request.responseType = "json";
-request.send();
+// OLD METHOD
 
-request.onload = function () {
-  const product = request.response;
+// let requestURL = "./product.json";
+// let request = new XMLHttpRequest();
+// request.open("GET", requestURL);
+// request.responseType = "json";
+// request.send();
+
+// request.onload = function () {
+//   const product = request.response;
+//   console.log(product);
+// };
+
+// NEW METHOD (FETCH)
+// async function named loadProduct
+// constant response identify the response to send => fetch accept 2 arguments:
+// first argument = the url of the request or a request object
+// second argument = options.method (get) or option.body (the body of the http request) or option.headers (an object with the headers to attach to the request)
+// Calling fetch() starts a request and returns a promise => when the request completes, the promise resolves to the response object
+// with RESPONSE.JSON I can parse the json in a JS OBJECT (return a promise)
+async function loadProduct() {
+  const response = await fetch("./product.json", { method: "GET" });
+  const product = await response.json();
+
   console.log(product);
-};
+}
+loadProduct();
 
 // OGGETTO GLOBALE
 let productInfo = {
