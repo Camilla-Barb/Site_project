@@ -1,3 +1,22 @@
+// PRODUCT.JSON FILE
+// sent a request to open an URL =>  an HTTP request
+// through GET (http method) it opens the file
+// the type of response it's a JSON and it sends it
+// Through the event ONLOAD (during the load) of the request it does a function
+// the function takes a constant product in which we have the response of the request
+// I print it in the console
+
+let requestURL = "./product.json";
+let request = new XMLHttpRequest();
+request.open("GET", requestURL);
+request.responseType = "json";
+request.send();
+
+request.onload = function () {
+  const product = request.response;
+  console.log(product);
+};
+
 // OGGETTO GLOBALE
 let productInfo = {
   valueColor: "",
