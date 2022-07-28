@@ -1,3 +1,13 @@
+// OGGETTO GLOBALE
+let productInfo = {
+  valueColor: "",
+  valueSize: "",
+  fullProduct: function () {
+    return "Stai acquistando:" + this.valueColor + " " + this.valueSize;
+  },
+};
+
+// CAROUSEL
 document.addEventListener("DOMContentLoaded", function () {
   //Dichiaro costante swiper per poterla riutilizzare eventualmente in futuro
 
@@ -12,18 +22,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const activeBtn = (e) => {
-  if (document.querySelector("button.active") !== null) {
-    document.querySelector("button.active").classList.remove("active");
-  }
-  e.target.className = "active";
-};
-
-const selectSize = (e) => {
-  activeBtn(e);
+// BUTTON SIZE
+const selectSize = (event, buttonList) => {
+  buttonList.forEach((el) => {
+    el.classList.remove("active");
+  });
+  // activeBtn(e);
+  // if (document.querySelector("button.active") !== null) {
+  //   document.querySelector("button.active").classList.remove("active");
+  event.target.className = "active";
+  productInfo.valueColor = event.target.dataset.color;
+  productInfo.valueSize = event.target.dataset.size;
+  // console.info(productInfo.valueSize);
 
   // console.log(e.currentTarget);
   // let arrDataSet = [...document.querySelectorAll("[data-size]")];
+};
+
+const addToCart = () => {
+  const addToCartBtn = document.querySelector(".cart");
+  const labelText = document.querySelector("label");
+  addToCartBtn.addEventListener("click", () => {
+    // productInfo.valueColor && productInfo.valueSize !== null
+    if (productInfo.value !== null) {
+      labelText.style.display = "block";
+      labelText.innerHTML = productInfo.fullProduct();
+    }
+  });
+};
+
+// const selectColor = (event, btnColorList) => {
+//   btnColorList.forEach((el) => {
+//     el.classList.remove("active");
+//   });
+//   event.target.className = "active";
+//   valueColor = event.target.dataset.color;
+// };
+
+const tempFunction = () => {
   let infoSize = document.querySelector(".size-info");
   infoSize.style.display = "block";
   if (e.currentTarget.dataset.size === "xs") {
@@ -39,38 +75,54 @@ const selectSize = (e) => {
   }
 };
 
-const checkBtn = () => {
-  const allSizeBtn = [...document.querySelectorAll(".size-guide > button")];
+// BUTTON COLOR E SIZE
+// const activeBtn = (e) => {
+//   const addToCartBtn = document.querySelector(".add-to-cart > button.cart");
+//   const allActiveBtn = document.querySelectorAll("button.active");
+//   allActiveBtn.forEach((el) => {
+//     if (allActiveBtn !== null) {
+//       el.classList.remove("active");
+//     }
+//     e.target.className = "active";
+//   });
+//   addToCartBtn.addEventListener("click", function addLabel(e) {
+//     // if (
+//     //    document.querySelectorAll(".miniature-image > button").classList.contains("active") &&
+//     //    document.querySelectorAll("")
+//     //  )
+//     let productInfo = {
+//       color: "yellow",
+//       size: "s",
+//       fullProduct: function () {
+//         return "Stai acquistando:" + this.color + " " + this.size;
+//       },
+//     };
+//     // productInfo.color = document.querySelector(".miniature-image button.active[data-color]");
+//     // productInfo.color = e.currentTarget.classList.contains("active");
+//     // console.log(productInfo.color);
+//     let labelText = document.querySelector("label");
+//     labelText.style.display = "block";
+//     labelText.innerHTML = productInfo.fullProduct();
+//   });
+// };
+
+// FUNCTION BUTTON CLICK
+const selectBtn = () => {
+  const allSizeBtn = document.querySelectorAll(".size-guide > button");
+
   allSizeBtn.forEach((el) => {
-    el.addEventListener("click", selectSize);
+    el.addEventListener("click", (e) => selectSize(e, allSizeBtn));
   });
 
-  const allColorBtn = [
-    ...document.querySelectorAll(".miniature-image > button"),
-  ];
-  console.log(allColorBtn);
+  const allColorBtn = document.querySelectorAll(".select-color > button");
   allColorBtn.forEach((el) => {
-    el.addEventListener("click", activeBtn);
+    el.addEventListener("click", (e) => selectSize(e, allColorBtn));
   });
 };
-
-//oggetto dinamico che al click del button Add si riempie
-// e stampa a video in una label "Stai acquistanndo colore x e taglia y"
-// concatenando color e size
-let productInfo = {
-  color: "",
-  size: "",
-};
-
-const labelText = document.querySelector("label");
-labelText.innerHTML = productInfo.size;
-
-// label.innerHTML = productInfo.color.size
-// productInfo.color = .miniature-image button.active .dataset.currentColor
-// productInfo.size = .size-guide button.active .dataset.currentSize
 
 const init = async () => {
-  checkBtn();
+  selectBtn();
+  addToCart();
 };
 
 init();
