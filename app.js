@@ -26,13 +26,29 @@
 // second argument = options.method (get) or option.body (the body of the http request) or option.headers (an object with the headers to attach to the request)
 // Calling fetch() starts a request and returns a promise => when the request completes, the promise resolves to the response object
 // with RESPONSE.JSON I can parse the json in a JS OBJECT (return a promise)
+
 async function loadProduct() {
   const response = await fetch("./product.json", { method: "GET" });
   const product = await response.json();
 
   console.log(product);
 }
-loadProduct();
+
+// ESEMPIO JSON GET DATI PROFILO GITHUB
+// function success() {
+//   var data = JSON.parse(this.responseText); //fai il parsing della stringa a JSON
+//   console.log(data);
+// }
+// // funzione per gestire errori
+// function error(err) {
+//   console.log("Request Failed", err); //dettagli dell'errore saranno nell'oggetto "err"
+// }
+
+// var xhr = new XMLHttpRequest(); //invoca una nuova instanza di XMLHttpRequest
+// xhr.onload = success; // invoca la funzione success se la richiesta ha successo
+// xhr.onerror = error; // chiama la funzione error se la richiesta fallisce
+// xhr.open("GET", "https://api.github.com/users/Camilla-Barb"); // apri una richiesta GET
+// xhr.send();
 
 // OGGETTO GLOBALE
 let productInfo = {
@@ -175,6 +191,7 @@ const selectBtn = () => {
 };
 
 const init = async () => {
+  loadProduct();
   selectBtn();
   addToCart();
 };
