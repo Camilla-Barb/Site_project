@@ -63,16 +63,21 @@ const selectSize = (event, buttonList) => {
   buttonList.forEach((el) => {
     el.classList.remove("active");
   });
-  // activeBtn(e);
-  // if (document.querySelector("button.active") !== null) {
-  //   document.querySelector("button.active").classList.remove("active");
   event.target.className = "active";
-  productInfo.valueColor = event.target.dataset.color;
+  // productInfo.valueColor = event.target.dataset.color;
   productInfo.valueSize = event.target.dataset.size;
+
   // console.info(productInfo.valueSize);
 
   // console.log(e.currentTarget);
   // let arrDataSet = [...document.querySelectorAll("[data-size]")];
+};
+const selectColor = (event, buttonList) => {
+  buttonList.forEach((el) => {
+    el.classList.remove("active");
+  });
+  event.target.className = "active";
+  productInfo.valueColor = event.target.dataset.color;
 };
 
 const addToCart = () => {
@@ -80,7 +85,20 @@ const addToCart = () => {
   const labelText = document.querySelector("label");
   addToCartBtn.addEventListener("click", () => {
     // productInfo.valueColor && productInfo.valueSize !== null
-    if (productInfo.value !== null) {
+    // if (productInfo.valueColor !== "" && productInfo.valueSize !== "") {
+    //   labelText.style.display = "block";
+    //   labelText.innerHTML = productInfo.fullProduct();
+    if (productInfo.valueColor === "" && productInfo.valueSize === "") {
+      labelText.style.display = "block";
+      labelText.innerHTML = "Seleziona il colore e la taglia";
+    } else if (productInfo.valueSize === "") {
+      labelText.style.display = "block";
+      labelText.innerHTML = "Seleziona la taglia";
+    } else if (productInfo.valueColor === "") {
+      labelText.style.display = "block";
+      labelText.innerHTML = "Seleziona il colore";
+      console.log("done");
+    } else {
       labelText.style.display = "block";
       labelText.innerHTML = productInfo.fullProduct();
     }
@@ -152,7 +170,7 @@ const selectBtn = () => {
 
   const allColorBtn = document.querySelectorAll(".select-color > button");
   allColorBtn.forEach((el) => {
-    el.addEventListener("click", (e) => selectSize(e, allColorBtn));
+    el.addEventListener("click", (e) => selectColor(e, allColorBtn));
   });
 };
 
