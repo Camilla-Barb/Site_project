@@ -1,19 +1,30 @@
 {
-  "posts": [
+  "product-name": "t-shirt in jersey di cotone",
+  "attribute": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "color": ["black", "white"],
+      "size": ["xs", "s", "m", "l", "xl"]
     }
   ],
-  "comments": [
+  "category": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "t-shirt & top",
+      "kind": "dress",
+      "type": "casual",
+      "material": "cotton"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "id": 1234,
+  "collection": "One Shirt A Day",
+  "madeIn": "Made in Italy",
+  "status": "inStock",
+  "available": true,
+  "description": "Maglietta in morbido cotone comoda per tutti i giorni con logo ricamato a mano",
+  "price": [
+    {
+      "value": 55,
+      "currency": "EUR",
+      "formatted": "€ 55,00"
+    }
+  ]
 }

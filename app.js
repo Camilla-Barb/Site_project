@@ -28,7 +28,7 @@
 // with RESPONSE.JSON I can parse the json in a JS OBJECT (return a promise)
 
 async function loadProduct() {
-  const response = await fetch("./product.json", { method: "GET" });
+  const response = await fetch("./db.json", { method: "GET" });
   const product = await response.json();
 
   console.log(product);
