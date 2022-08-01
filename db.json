@@ -1,5 +1,5 @@
 {
-  "product-name": "t-shirt in jersey di cotone",
+  "product": "t-shirt in jersey di cotone",
   "attribute": [
     {
       "color": ["black", "white"],
@@ -15,7 +15,7 @@
     }
   ],
   "id": 1234,
-  "collection": "One Shirt A Day",
+  "collection": "Cotton shirt",
   "madeIn": "Made in Italy",
   "status": "inStock",
   "available": true,

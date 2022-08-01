@@ -51,6 +51,7 @@ async function loadProduct() {
 // xhr.send();
 
 // OGGETTO GLOBALE
+
 let productInfo = {
   valueColor: "",
   valueSize: "",
@@ -104,6 +105,7 @@ const addToCart = () => {
     // if (productInfo.valueColor !== "" && productInfo.valueSize !== "") {
     //   labelText.style.display = "block";
     //   labelText.innerHTML = productInfo.fullProduct();
+
     if (productInfo.valueColor === "" && productInfo.valueSize === "") {
       labelText.style.display = "block";
       labelText.innerHTML = "Seleziona il colore e la taglia";
@@ -192,8 +194,8 @@ const selectBtn = () => {
 
 const init = async () => {
   loadProduct();
-  selectBtn();
   addToCart();
+  selectBtn();
 };
 
 init();
