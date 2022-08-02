@@ -103,7 +103,10 @@ const addToCart = () => {
     } else if (productInfo.valueSize === "") {
       labelText.style.display = "block";
       labelText.innerHTML = "Seleziona la taglia";
-    } else if (productInfo.valueColor === "") {
+    } else if (
+      productInfo.valueColor === "" ||
+      productInfo.valueColor === undefined
+    ) {
       labelText.style.display = "block";
       labelText.innerHTML = "Seleziona il colore";
       console.log("done");
