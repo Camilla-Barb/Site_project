@@ -93,6 +93,7 @@ const selectColor = (event, buttonColorList) => {
   productInfo.valueColor = event.target.dataset.color;
 };
 
+// BUTTON COLOR
 const addToCart = () => {
   const addToCartBtn = document.querySelector(".cart");
   const labelText = document.querySelector("label");
@@ -109,7 +110,6 @@ const addToCart = () => {
     ) {
       labelText.style.display = "block";
       labelText.innerHTML = "Seleziona il colore";
-      console.log("done");
     } else {
       labelText.style.display = "block";
       labelText.innerHTML = productInfo.fullProduct();
@@ -132,37 +132,6 @@ const tempFunction = () => {
     infoSize.innerHTML = "Aggiungi al carrello per continuare il tuo acquisto";
   }
 };
-
-// BUTTON COLOR E SIZE
-// const activeBtn = (e) => {
-//   const addToCartBtn = document.querySelector(".add-to-cart > button.cart");
-//   const allActiveBtn = document.querySelectorAll("button.active");
-//   allActiveBtn.forEach((el) => {
-//     if (allActiveBtn !== null) {
-//       el.classList.remove("active");
-//     }
-//     e.target.className = "active";
-//   });
-//   addToCartBtn.addEventListener("click", function addLabel(e) {
-//     // if (
-//     //    document.querySelectorAll(".miniature-image > button").classList.contains("active") &&
-//     //    document.querySelectorAll("")
-//     //  )
-//     let productInfo = {
-//       color: "yellow",
-//       size: "s",
-//       fullProduct: function () {
-//         return "Stai acquistando:" + this.color + " " + this.size;
-//       },
-//     };
-//     // productInfo.color = document.querySelector(".miniature-image button.active[data-color]");
-//     // productInfo.color = e.currentTarget.classList.contains("active");
-//     // console.log(productInfo.color);
-//     let labelText = document.querySelector("label");
-//     labelText.style.display = "block";
-//     labelText.innerHTML = productInfo.fullProduct();
-//   });
-// };
 
 // FUNCTION BUTTON CLICK
 const selectBtn = () => {
