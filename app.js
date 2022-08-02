@@ -83,14 +83,10 @@ const selectSize = (event, buttonList) => {
   event.target.className = "active";
   // productInfo.valueColor = event.target.dataset.color;
   productInfo.valueSize = event.target.dataset.size;
-
-  // console.info(productInfo.valueSize);
-
-  // console.log(e.currentTarget);
-  // let arrDataSet = [...document.querySelectorAll("[data-size]")];
 };
-const selectColor = (event, buttonList) => {
-  buttonList.forEach((el) => {
+
+const selectColor = (event, buttonColorList) => {
+  buttonColorList.forEach((el) => {
     el.classList.remove("active");
   });
   event.target.className = "active";
@@ -101,11 +97,6 @@ const addToCart = () => {
   const addToCartBtn = document.querySelector(".cart");
   const labelText = document.querySelector("label");
   addToCartBtn.addEventListener("click", () => {
-    // productInfo.valueColor && productInfo.valueSize !== null
-    // if (productInfo.valueColor !== "" && productInfo.valueSize !== "") {
-    //   labelText.style.display = "block";
-    //   labelText.innerHTML = productInfo.fullProduct();
-
     if (productInfo.valueColor === "" && productInfo.valueSize === "") {
       labelText.style.display = "block";
       labelText.innerHTML = "Seleziona il colore e la taglia";
@@ -122,14 +113,6 @@ const addToCart = () => {
     }
   });
 };
-
-// const selectColor = (event, btnColorList) => {
-//   btnColorList.forEach((el) => {
-//     el.classList.remove("active");
-//   });
-//   event.target.className = "active";
-//   valueColor = event.target.dataset.color;
-// };
 
 const tempFunction = () => {
   let infoSize = document.querySelector(".size-info");
