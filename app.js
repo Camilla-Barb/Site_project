@@ -75,23 +75,26 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// BUTTON SIZE
-const selectSize = (event, buttonList) => {
+// BUTTON SIZE and COLOR
+const toggleBtn = (event, buttonList) => {
   buttonList.forEach((el) => {
     el.classList.remove("active");
   });
-  event.target.className = "active";
-  // productInfo.valueColor = event.target.dataset.color;
-  productInfo.valueSize = event.target.dataset.size;
+  event.currentTarget.className = "active";
+  if (event.currentTarget.dataset.color) {
+    productInfo.valueColor = event.currentTarget.dataset.color;
+  } else {
+    productInfo.valueSize = event.currentTarget.dataset.size;
+  }
 };
 
-const selectColor = (event, buttonColorList) => {
-  buttonColorList.forEach((el) => {
-    el.classList.remove("active");
-  });
-  event.target.className = "active";
-  productInfo.valueColor = event.target.dataset.color;
-};
+// const selectColor = (event, buttonColorList) => {
+//   buttonColorList.forEach((el) => {
+//     el.classList.remove("active");
+//   });
+//   event.target.className = "active";
+//   productInfo.valueColor = event.target.dataset.color;
+// };
 
 // BUTTON COLOR
 const addToCart = () => {
@@ -138,12 +141,12 @@ const selectBtn = () => {
   const allSizeBtn = document.querySelectorAll(".size-guide > button");
 
   allSizeBtn.forEach((el) => {
-    el.addEventListener("click", (e) => selectSize(e, allSizeBtn));
+    el.addEventListener("click", (e) => toggleBtn(e, allSizeBtn));
   });
 
   const allColorBtn = document.querySelectorAll(".select-color > button");
   allColorBtn.forEach((el) => {
-    el.addEventListener("click", (e) => selectColor(e, allColorBtn));
+    el.addEventListener("click", (e) => toggleBtn(e, allColorBtn));
   });
 };
 
